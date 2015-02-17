@@ -1,0 +1,229 @@
+%%
+% Modificación de una plantilla de Latex para adaptarla al castellano.
+%%
+
+%%%%%%%%%%%%%%%%%%%%%
+% Thin Sectioned Essay
+% LaTeX Template
+% Version 1.0 (3/8/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original Author:
+% Nicolas Diaz (nsdiaz@uc.cl) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper, 11pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{graphicx} % Required for including pictures
+\usepackage[usenames,dvipsnames]{color} % Coloring code
+\usepackage{wrapfig} % Allows in-line images
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+% sudo apt-get install texlive-lang-spanish
+\usepackage[spanish]{babel} % English language/hyphenation
+\selectlanguage{spanish}
+% Hay que pelearse con babel-spanish para el alineamiento del punto decimal
+\decimalpoint
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{\esperiod}{#1}}
+\makeatletter
+\addto\shorthandsspanish{\let\esperiod\es@period@code}
+\makeatother
+
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{supertabular}
+
+\usepackage{multicol}
+\newsavebox\ltmcbox
+
+% Para algoritmos
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsthm}
+
+% Símbolos matemáticos
+\usepackage{amssymb}
+\usepackage{accents}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\usepackage[section]{placeins} % Para gráficas en su sección.
+\usepackage[T1]{fontenc} % Required for accented characters
+\newenvironment{allintypewriter}{\ttfamily}{\par}
+\setlength{\parindent}{0pt}
+\parskip=8pt
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+\newcommand{\imagen}[2]{\begin{center} \includegraphics[width=90mm]{#1} \\#2 \end{center}}
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
+\begin{center} % Right align
+{\LARGE\@title} % Increase the font size of the title
+\end{center}
+\vspace{50pt} % Some vertical space between the title and author name
+\begin{flushright}
+{\large\@author} % Author name
+\\\@date % Date
+
+\vspace{40pt} % Some vertical space between the author block and abstract
+\end{flushright}
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\title{\textbf{Análisis Matemático II}\\ % Title
+Relación de ejercicios del tema I} % Subtitle
+
+\author{\textsc{Óscar Bermúdez} % Author
+\\{\textit{Universidad de Granada}}} % Institution
+
+\date{\today} % Date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title section
+
+\section*{Sucesiones de funciones}
+\begin{enumerate}
+	\item Estudia la convergencia uniforme en intervalos de la forma $[0,a]$ y $[a, +\infty[$,
+	donde $a > 0$, de la sucesión de funciones $\{f_n\}$ definidas para todo $x \geq 0$ por:
+	$$f_n(x) = \frac{2nx^2}{1+n^2x^4}$$
+	
+	\item Dado $\alpha \in \mathbb{R}$, consideremos la sucesión de funciones $\{f_n\}$, donde\\ %Salto de línea para no separar $f_n: [0,1]...$
+	$f_n: [0,1] \rightarrow \mathbb{R}$ es la función definida para todo $x \in [0,1]$ por:
+	$$f_n(x) = n^\alpha x(1-x^2)^n$$
+	¿Para qué valores de $\alpha$ hay convergencia uniforme en $[0,1]$?¿Para qué valores de
+	$\alpha$ hay convergencia uniforme en $[\rho,1]$, donde $\rho \in ]0,1[$?
+	
+	\item Para cada $n \in \mathbb{N}$, sea $f_n: \left[0, \frac{\pi}{2}\right] \rightarrow \mathbb{R}$
+	la función dada por:
+	$$f_n(x) = n(\cos x)^n \sen x$$
+	Estudia la convergencia puntual de la sucesión de funciones $\{f_n\}$ y la convergencia
+	uniforme en los intervalos $[0, a]$ y $\left[a,\frac{\pi}{2}\right]$, donde $0 < a < \frac{\pi}{2}$.
+	
+	\item Para cada $n \in \mathbb{N}$ sea $f_n: ]0, \pi] \rightarrow \mathbb{R}$ la función dada por:
+	$$f_n(x) = \frac{\sen^2(nx)}{n\sen x} \quad (0 < x < \pi)$$
+	Estudia la convergencia puntual de la sucesión de funciones $\{f_n\}$, así como la convergencia
+	uniforme en los intervalos del tipo $[0, a]$, $[a,\pi]$ y $[a,b]$, donde $0 < a < b < \pi$.
+	
+	\item Estudia la convergencia puntual y uniforme de la sucesión de funciones $\{f_n\}$, donde
+	$f_n: \mathbb{R} \rightarrow \mathbb{R}$ está definida por:
+	$$f_n(x) = \sqrt[n]{1+x^{2n}} \quad (x \in \mathbb{R})$$
+	
+	\item Estudia la convergencia uniforme en intervalos de la forma $]-\infty, a]$, $[-a,a]$ y
+	$[a, +\infty[$, donde $a > 0$, de la sucesión de funciones $\{f_n\}$ definidas por:
+	$$f_n(x) = n\sen\left(\frac{x}{n}\right) \quad (x \in \mathbb{R})$$
+	
+	\item Estudia la convergencia uniformen en $\mathbb{R}^+_0$, de la sucesión de funciones $\{f_n\}$
+	definidas para todo $x \in \mathbb{R}^+_0$ por:
+	$$f_n(x) = \arctan\left(\frac{n+x}{1+nx}\right)$$
+\end{enumerate}
+
+\section*{Series de funciones}
+\begin{enumerate}
+	\item Para cada $n \in \mathbb{N}$ sea
+	$$f_n(x) = \frac{x}{n^\alpha (1+nx^2)} \quad (x \geq 0)$$
+	Prueba que $\sum f_n$ converge:
+	\begin{enumerate}
+		\item puntualmente en $\mathbb{R}^+_0$ si $\alpha > 0$.
+		\item uniformemente en semirrecas cerradas que no contienen al 0.
+		\item uniformemente en $\mathbb{R}^+_0$ si $\alpha > \frac{1}{2}$.
+	\end{enumerate}
+	
+	\item Estudia la convergencia puntual y uniforme de la serie $\sum f_n$, donde $f_n: \mathbb{R}
+	\rightarrow \mathbb{R}$ es la función dada por:
+	$$f_n(x) = \frac{x}{1+n^2x^2} \quad (n = 0, 1, 2, \dots)$$
+	Sea $F(x)= \displaystyle{\sum^{\infty}_{n = 0} f_n}$, la función suma de la serie. Calcula
+	$\lim\limits_{x \rightarrow 0^-} F(x)$ y $\lim\limits_{x \rightarrow 0^+} F(x)$. \footnote{Sugerencia:\\
+	Para $x > 0$ se tiene que
+	$$\int^{k+1}_{k} \frac{x}{1+t^2x^2} dt \leq f_k(x) = \int^{k+1}_{k} \frac{x}{1+k^2x^2} dt \leq
+	\int^{k}_{-k} \frac{x}{1+t^2x^2} dt$$}
+	
+	\item Estudia la convergencia puntual y uniforme de la serie $\sum f_n$, donde
+	$$f_n(x)=\frac{n^{n+1}}{n!} x^n e^{-nx} \quad (x \geq 0)$$
+	
+	\item En cada uno de los siguientes ejercicios se especifica un conjunto $A \subset \mathbb{R}$ y,
+	para cada $n \in \mathbb{N}$, se define una función $f_n: A \rightarrow \mathbb{R}$. Se pide estudiar,
+	en cada caso, la convergencia puntual en $A$ de la serie de funciones $\sum f_n$, y la continuidad
+	de la función suma $\displaystyle{F = \sum^{\infty}_{n = 1} f_n}$:
+	\begin{enumerate}
+		\item $A = \mathbb{R}$ y $f_n(x) = e^{-nx}$.
+		\item $A = \mathbb{R}$ y $f_n(x) = (-1)^n \cdot \displaystyle{\frac{\sen (n^2x)}{n(\log(n+1))^2}}$.
+		\item $A = \mathbb{R} \setminus \mathbb{Z}^*$ y $f_n(x) = \displaystyle{\frac{1}{n^2-x^2}}$.
+		\item $A = \mathbb{R} \setminus \{-1,1\}$ y $f_n(x) = \displaystyle{\frac{x^{2n}}{1-x^{2n+1}}}$.
+	\end{enumerate}
+	
+	\item Estudia la derivabilidad de la función de Riemann $\xi: ]1, +\infty[ \rightarrow \mathbb{R}$, definida
+	para todo $x > 1$ por:
+	$$\displaystyle{\xi(x) = \sum^{\infty}_{n=1} \frac{1}{n^x}}$$
+	Justifica también que $\lim\limits_{x \rightarrow 1} \xi(x) = +\infty$.
+\end{enumerate}
+
+\section*{Series de potencias}
+\begin{enumerate}
+	\item Calcula el radio de convergencia de cada una de las series de potencias $\displaystyle{\sum_n a_n x^n}$
+	y estudia el comportamiento de la serie en los extremos del intervalo de convergencia, en los siguientes casos:
+	\begin{enumerate}
+		\item $\displaystyle{a_n = \frac{1}{\log (n+2)}}$
+		\item $a_n = (n+1)^{\log (n+1)}$
+		\item $\displaystyle{a_n = e - \left(1+ \frac{1}{n}\right)^n}$
+		\item $\displaystyle{a_n = \frac{1 \cdot 3 \cdot 5 \cdot \dots \cdot (2n+1)}{2 \cdot 4 \cdot 6 \cdot \dots \cdot (2n)}}$
+		\item $a_n = a^{\sqrt{n}} \quad (a > 0)$
+		\item $\displaystyle{a_n = 1 + \frac{1}{2} + \dots + \frac{1}{n}}$
+	\end{enumerate}
+	
+	\item Calcula la función suma de las series de potencias $\displaystyle{\sum_{n \geq 0} (n+1) \frac{x^{3n}}{2^n}}$
+	y $\displaystyle{\sum_{n \geq 1} \frac{n(x+3)^{3n}}{2^n}}$.
+	
+	\item Expresa la función suma de las series de potencias $\displaystyle{\sum_{n \geq 1} nx^{n-1}}$ y
+	$\displaystyle{\sum_{n \geq 1} \frac{n}{n+1}x^n}$ por medio de funciones elementales y calcula el valor de
+	$\displaystyle{\sum^{\infty}_{n = 1} \frac{n}{2^n(n+1)}}$.
+	
+	\item Calcula el radio de convergencia y la suma de las series:
+	\begin{itemize}
+		\item $\displaystyle{\sum_{n \geq 0} \frac{n^3+n+3}{n+1}x^n}$
+		\item $\displaystyle{\sum_{n \geq 0} \frac{n^3}{n!}x^n}$
+		\item $\displaystyle{\sum_{n \geq 1} \frac{1}{1 + 2 + \dots + n}x^n}$
+	\end{itemize}
+	
+	\item Calcula la función suma de la serie de potencias $\displaystyle{\sum_{n \geq 1} \frac{1}{n(2n+1)}x^n}$ y
+	deduce el valor de las sumas de las series $\displaystyle{\sum_{n \geq 1} \frac{1}{n(2n+1)}}$ y
+	$\displaystyle{\sum_{n \geq 1} \frac{(-1)^n}{n(2n+1)}}$.
+	
+	\item Calcula la función suma de la serie de potencias $\displaystyle{\sum_{n \geq 1} \frac{x^{2n}}{n(2n-1)}}$.
+	
+	\item Prueba que las funciones definidas por:
+	\begin{itemize}
+		\item $\displaystyle{g(x) = \frac{\sen x}{x}, \quad g(0) = 1}$
+		\item $\displaystyle{f(x) = \frac{e^x-1}{x}, \quad f(0) = 1}$
+	\end{itemize}
+	son de clase $\mathit{C}^\infty$ en su intervalo natural de definición.
+	
+	\item Calcula el desarrollo en serie de potencias centrada en un punto $a$ de la función:
+	$$\displaystyle{f(x) = \frac{2x^3-x^2+2x-7}{x^4-x^3-3x^2+x+2}}$$
+	
+\end{enumerate}
+
+\end{document}
