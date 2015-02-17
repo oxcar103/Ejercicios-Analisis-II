@@ -112,7 +112,70 @@ Relación de ejercicios del tema I} % Subtitle
 	$$f_n(x) = \frac{2nx^2}{1+n^2x^4}$$
 	\subsection*{Soluciones:}
 		\subsubsection*{Solución 1:}
-	
+		Claramente, $f_n(x) \geq 0 \quad \forall x \in \mathbb{R}^+_0$.
+		
+		Primero, vamos a calcular el límite puntual de $\{f_n\}$:
+		
+		Claramente, $f_n(0) = 0  \Rightarrow \lim\limits_{n \rightarrow +\infty} f_n(0) = 0$.
+		
+		Ahora, vamos a calcular $\lim\limits_{n \rightarrow +\infty} f_n(x)$ con $x > 0$,
+		$$\lim\limits_{n \rightarrow +\infty} f_n(x) = \lim\limits_{n \rightarrow +\infty}
+		\frac{2nx^2}{1+n^2x^4} \leq  \lim\limits_{n \rightarrow +\infty} \frac{2nx^2}{n^2x^4}
+		= \lim\limits_{n \rightarrow +\infty} \frac{2}{nx^2} = 0$$
+		Por tanto, $f(x) = \lim\limits_{n \rightarrow +\infty} f_n(x) =
+		\left\{\begin{array}{ccc}
+			0 &   si  & x = 0 \\
+  			0 &  si & x > 0
+  		\end{array}\right. \Rightarrow f \equiv 0$
+  		
+  		Pasamos ahora a ver la convergencia uniforme, para ello, debemos que comprobar que
+  		$\lim\limits_{n \rightarrow +\infty} |f_n(x)-f(x)| = 0 \quad \forall x \in \mathbb{R}^+_0$.
+  		
+  		Como tenemos que $f \equiv 0$ y $f_n(x) \geq 0 \quad \forall x \in \mathbb{R}^+_0$,
+  		el límite queda $\lim\limits_{n \rightarrow +\infty} f_n(x) = 0 \quad \forall x \in \mathbb{R}^+_0$
+  		
+  		Para cada $n \in \mathbb{N}$, vamos a calcular $x_n$ tal que $\displaystyle{f(x_n) =
+  		\max_{x \in	\mathbb{R}^+_0}\{f(x)\}}$ ya que como tenemos que:
+  		$ \left. \begin{array}{c}
+  			f(x_n) \geq f_n(x) \quad \forall x \in \mathbb{R}^+_0\\
+  			x_n \in \mathbb{R}^+_0
+   		\end{array} \right\}
+   		\Rightarrow$ Basta con comprobar $\lim\limits_{n \rightarrow +\infty} f_n(x_n) = 0$
+   		
+   		Si queremos buscar un máximo, como $f_n(x)$ es claramente derivable por ser composición
+   		de funciones derivables, basta con calcular los puntos que anulan la derivada:
+   		$$f'(x) = \frac{4nx(1+n^2x^4)-(2nx^2)4n^2x^3}{(1 + n^2x^4)^2} = 4nx \frac{1-n^2x^4}{(1+n^2x^4)^2}$$
+   		$$f'(x) = 0 \Leftrightarrow x(1-n^2x^4) = 0 \Leftrightarrow
+   		\left\{\begin{array}{c}
+  			x = 0\\
+   		  	1 + n^2x^4 = 0 \Rightarrow \displaystyle{x = \frac{1}{\sqrt{n}} = x_n}
+   		\end{array}\right.$$
+  		
+  		De estos dos candidatos, descartamos $x = 0$ ya que $f_n(0) = 0$, $f_n(x) \geq 0$ y
+  		$f_n \not \equiv 0$, y como $f'(]0,x_n[) \subset \mathbb{R}^+$ y $f'(]x_n, + \infty[)
+  		\subset \mathbb{R}^-$, se tiene que $x_n$ es el máximo que buscábamos.
+  		
+  		Claramente, $\lim\limits_{n \rightarrow +\infty} f_n(x_n) = \lim\limits_{n \rightarrow +\infty} 
+  		\frac{\displaystyle{2n\left(\frac{1}{\sqrt{n}}\right)^2}}{\displaystyle{1+n^2\left(\frac{1}{\sqrt{n}}\right)^4}}
+  		= \lim\limits_{n \rightarrow +\infty} \displaystyle{\frac{2}{1+1}} = 1$
+  		
+  		Por tanto, los intervalos que contengan a $x_n$ no serán convergentes uniformemente.
+  		
+  		Vayamos ahora a los intervalos que nos piden:
+  		\begin{itemize}
+  			\item En el intervalo $[0,a]$, $f_n$ no converge uniformemente ya que \\
+  			$\displaystyle{\lim\limits_{n \rightarrow +\infty} \max_{0 \leq x \leq a}\{f_n(x)\}
+  			= \lim\limits_{n \rightarrow +\infty} f_n(x_n)} \neq 0$ esto se debe a que $\exists
+  			n_0$ tal que $x_{n_0} < a \Rightarrow \forall n \geq n_0 \quad x_n < a$.
+  			Por tanto, $x_n \in [0,a] \quad \forall n \geq n_0$
+  			
+  			\item En el intervalo $[a,+\infty[$, $f_n$ converge uniformemente ya que \\
+  			$\displaystyle{\lim\limits_{n \rightarrow +\infty} \max_{x \geq a}\{f_n(x)\}
+  			= \lim\limits_{n \rightarrow +\infty} f_n(a)} = 0$ se tiene que $\exists
+  			n_0$ tal que $x_{n_0} < a \Rightarrow \forall n \geq n_0 \quad x_n < a$.
+  			Por tanto, $x_n \notin [a,+\infty[ \quad \forall n \geq n_0$
+  		\end{itemize}
+  		
 	\item Dado $\alpha \in \mathbb{R}$, consideremos la sucesión de funciones $\{f_n\}$, donde\\ %Salto de línea para no separar $f_n: [0,1]...$
 	$f_n: [0,1] \rightarrow \mathbb{R}$ es la función definida para todo $x \in [0,1]$ por:
 	$$f_n(x) = n^\alpha x(1-x^2)^n$$
