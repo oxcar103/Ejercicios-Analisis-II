@@ -375,7 +375,20 @@ Relación de ejercicios del tema I} % Subtitle
 	\item Calcula la función suma de la serie de potencias $\displaystyle{\sum_{n \geq 1} \frac{x^{2n}}{n(2n-1)}}$.
 	\subsection*{Soluciones:}
 		\subsubsection*{Solución 1:}
-	
+	Primero vemos para que valores de $x$ la serie converge, para ello usamos el criterio del cociente:
+	Sea $a_n:\frac{\vert x\vert^{2n}}{n(2n-1)}$ entonces $$\frac{a_{n+1}}{a_n}=\frac{\frac{\vert x\vert^{2n+2}}{(n+1)(2n+1)}}{\frac{\vert x\vert^{2n}}{n(2n-1)}}=\vert x\vert^2\frac{n(2n-1)}{(n+1)(2n+1)}\rightarrow \vert x\vert^2$$
+	Por tanto solo converge si $x\in (-1,1)$, hemos averiguado ya el intervalo de convergencia y podemos definir la funcion suma como 
+	$$f(-1,1) \rightarrow R$$
+	$$f(x)=\sum_{n\geq1}\frac{x^{2n}}{n(2n-1)} \ \ \ \ \ \ \ \ \ \ -1<x<1$$
+	Para calcular $f(x)$ haremos uso del resultado que nos asegura que la derivada y la integral de una serie de potencias es la derivada o la integral de sus terminos.
+	Por tanto para $x\in (-1,1)$ vemos que :
+	 $$f\ \acute{}\ (x)=\sum_{n=}^\infty2\frac{x^{2n-1}}{2n-1}$$
+	 $$f\ \acute{}\ \acute{}\ (x)=\sum_{n=1}^\infty 2x^{2n-2}=\sum_{n=0}^\infty 2x^{2n}=\frac{2}{1-x^2}$$
+	 Como vemos $f(0)=f\ \acute{}\ (0)=0$, y la podemos escribir como:
+	 $$f\ \acute{}\ =\int_0^xf\ \acute{}\ \acute{}\ =\int_0^x\frac{2}{1-t^2}dt=\log(1+x)-\log(1-x)$$
+	 Y por ultimo podemos calcular $f(x)\ \ \ \forall x \in (-1,1)$ como:
+	 $$f(x)=\int_0^xf\ \acute{}\ =\int_0^x(\log(1+t)-\log(1-t))dt=(1+x)\log(1+x)-(1-x)\log(1-x)$$
+	 
 	\item Prueba que las funciones definidas por:
 	\begin{itemize}
 		\item $\displaystyle{g(x) = \frac{\sen x}{x}, \quad g(0) = 1}$
