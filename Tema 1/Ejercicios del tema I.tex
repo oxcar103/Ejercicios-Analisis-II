@@ -249,14 +249,14 @@ Relación de ejercicios del tema I} % Subtitle
 
 	\item Para cada $n \in \mathbb{N}$, sea $f_n: \left[0, \frac{\pi}{2}\right] \rightarrow \mathbb{R}$
 	la función dada por:
-	$$f_n(x) = n(\cos x)^n \sen x$$
+	$$f_n(x) = n(\cos x)^n \sin x$$
 	Estudia la convergencia puntual de la sucesión de funciones $\{f_n\}$ y la convergencia
 	uniforme en los intervalos $[0, a]$ y $\left[a,\frac{\pi}{2}\right]$, donde $0 < a < \frac{\pi}{2}$.
 	\subsection*{Soluciones:}
 		\subsubsection*{Solución 1:}
 	
 	\item Para cada $n \in \mathbb{N}$ sea $f_n: ]0, \pi[ \rightarrow \mathbb{R}$ la función dada por:
-	$$f_n(x) = \frac{\sen^2(nx)}{n\sen x} \quad (0 < x < \pi)$$
+	$$f_n(x) = \frac{\sin^2(nx)}{n\sin x} \quad (0 < x < \pi)$$
 	Estudia la convergencia puntual de la sucesión de funciones $\{f_n\}$, así como la convergencia
 	uniforme en los intervalos del tipo $]0, a]$, $[a,\pi[$ y $[a,b]$, donde $0 < a < b < \pi$.
 	\subsection*{Soluciones:}
@@ -270,7 +270,7 @@ Relación de ejercicios del tema I} % Subtitle
 	
 	\item Estudia la convergencia uniforme en intervalos de la forma $]-\infty, -a]$, $[-a,a]$ y
 	$[a, +\infty[$, donde $a > 0$, de la sucesión de funciones $\{f_n\}$ definidas por:
-	$$f_n(x) = n \sen\left(\frac{x}{n}\right) \quad (x \in \mathbb{R})$$
+	$$f_n(x) = n \sin\left(\frac{x}{n}\right) \quad (x \in \mathbb{R})$$
 	\subsection*{Soluciones:}
 		\subsubsection*{Solución 1:}
 	
@@ -316,7 +316,7 @@ Relación de ejercicios del tema I} % Subtitle
 	de la función suma $\displaystyle{F = \sum^{\infty}_{n = 1} f_n}$:
 	\begin{enumerate}
 		\item $A = \mathbb{R}$ y $f_n(x) = e^{-nx}$.
-		\item $A = \mathbb{R}$ y $f_n(x) = (-1)^n \cdot \displaystyle{\frac{\sen (n^2x)}{n(\log(n+1))^2}}$.
+		\item $A = \mathbb{R}$ y $f_n(x) = (-1)^n \cdot \displaystyle{\frac{\sin (n^2x)}{n(\log(n+1))^2}}$.
 		\item $A = \mathbb{R} \setminus \mathbb{Z}^*$ y $f_n(x) = \displaystyle{\frac{1}{n^2-x^2}}$.
 		\item $A = \mathbb{R} \setminus \{-1,1\}$ y $f_n(x) = \displaystyle{\frac{x^{2n}}{1-x^{2n+1}}}$.
 	\end{enumerate}
@@ -375,23 +375,32 @@ Relación de ejercicios del tema I} % Subtitle
 	\item Calcula la función suma de la serie de potencias $\displaystyle{\sum_{n \geq 1} \frac{x^{2n}}{n(2n-1)}}$.
 	\subsection*{Soluciones:}
 		\subsubsection*{Solución 1:}
-	Primero vemos para que valores de $x$ la serie converge, para ello usamos el criterio del cociente:
-	Sea $a_n:\frac{\vert x\vert^{2n}}{n(2n-1)}$ entonces $$\frac{a_{n+1}}{a_n}=\frac{\frac{\vert x\vert^{2n+2}}{(n+1)(2n+1)}}{\frac{\vert x\vert^{2n}}{n(2n-1)}}=\vert x\vert^2\frac{n(2n-1)}{(n+1)(2n+1)}\rightarrow \vert x\vert^2$$
-	Por tanto solo converge si $x\in (-1,1)$, hemos averiguado ya el intervalo de convergencia y podemos definir la funcion suma como 
-	$$f(-1,1) \rightarrow R$$
-	$$f(x)=\sum_{n\geq1}\frac{x^{2n}}{n(2n-1)} \ \ \ \ \ \ \ \ \ \ -1<x<1$$
-	Para calcular $f(x)$ haremos uso del resultado que nos asegura que la derivada y la integral de una serie de potencias es la derivada o la integral de sus terminos.
-	Por tanto para $x\in (-1,1)$ vemos que :
-	 $$f\ \acute{}\ (x)=\sum_{n=}^\infty2\frac{x^{2n-1}}{2n-1}$$
-	 $$f\ \acute{}\ \acute{}\ (x)=\sum_{n=1}^\infty 2x^{2n-2}=\sum_{n=0}^\infty 2x^{2n}=\frac{2}{1-x^2}$$
-	 Como vemos $f(0)=f\ \acute{}\ (0)=0$, y la podemos escribir como:
-	 $$f\ \acute{}\ =\int_0^xf\ \acute{}\ \acute{}\ =\int_0^x\frac{2}{1-t^2}dt=\log(1+x)-\log(1-x)$$
-	 Y por ultimo podemos calcular $f(x)\ \ \ \forall x \in (-1,1)$ como:
-	 $$f(x)=\int_0^xf\ \acute{}\ =\int_0^x(\log(1+t)-\log(1-t))dt=(1+x)\log(1+x)-(1-x)\log(1-x)$$
+	Primero vemos para qué valores de $x$ la serie converge, para ello usamos el criterio del cociente:
+	
+	Sea $a_n = \displaystyle{\frac{\vert x\vert^{2n}}{n(2n-1)}}$, entonces:
+	$$\frac{a_{n+1}}{a_n} = \frac{|x|^{2n+2}}{(n+1)(2n+1)} : \frac{|x|^{2n}}{n(2n-1)} =
+	|x|^2 \frac{n(2n-1)}{(n+1)(2n+1)} \rightarrow |x|^2$$
+	
+	Por tanto, solo converge si $x \in (-1,1)$, hemos averiguado ya el intervalo de convergencia y podemos
+	definir la función suma $f: (-1,1) \rightarrow \mathbb{R}$ como:
+	$$f(x)=\sum_{n \geq 1}\frac{x^{2n}}{n(2n-1)}$$
+	
+	Para calcular $f(x)$, haremos uso del resultado que nos asegura que la derivada y la integral de una
+	serie de potencias es la derivada o la integral de sus términos.
+	
+	Por tanto, para $x \in (-1,1)$ vemos que:
+	$$f'(x)=\sum_{n = 2}^\infty \frac{x^{2n-1}}{2n-1}$$
+	$$f''(x)=\sum_{n=1}^\infty 2x^{2n-2}=\sum_{n=0}^\infty 2x^{2n}=\frac{2}{1-x^2}$$
+	
+	Como vemos, $f(0) = f'(0) = 0$ y la podemos escribir como:
+	$$f' = \int_0^x f'' = \int_0^x \frac{2}{1-t^2} \quad dt = \log(1+x) - \log(1-x)$$
+	
+	Y por último, podemos calcular $f(x) \quad \forall x \in (-1,1)$ como:
+	$$f(x) = \int_0^x f' = \int_0^x (\log(1+t) - \log(1-t)) \quad dt =$$ $$= (1+x) \log(1+x) - (1-x)\log(1-x)$$
 	 
 	\item Prueba que las funciones definidas por:
 	\begin{itemize}
-		\item $\displaystyle{g(x) = \frac{\sen x}{x}, \quad g(0) = 1}$
+		\item $\displaystyle{g(x) = \frac{\sin x}{x}, \quad g(0) = 1}$
 		\item $\displaystyle{f(x) = \frac{e^x-1}{x}, \quad f(0) = 1}$
 	\end{itemize}
 	son de clase $\mathit{C}^\infty$ en su intervalo natural de definición.
